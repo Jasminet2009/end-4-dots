@@ -1,7 +1,6 @@
-self: anyrun: ags: { ... }:
+self: ags: { ... }:
 {
   imports = [
-    anyrun.homeManagerModules.default
     (import ./options.nix ags)
     ./hyprland.nix
     ./kitty.nix

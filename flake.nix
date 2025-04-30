@@ -8,7 +8,7 @@
     systems.url = "github:nix-systems/default-linux";
   };
 
-  outputs = { self, nixpkgs, ags, anyrun, systems, ... }: let
+  outputs = { self, nixpkgs, ags, systems, ... }: let
     inherit (nixpkgs) lib;
     eachSystem = lib.genAttrs (import systems);
   in {
@@ -19,6 +19,6 @@
         ags = ags.packages.${system}.default;
       }
     );
-    homeManagerModules.default = import ./modules self anyrun ags;
+    homeManagerModules.default = import ./modules self ags;
   };
 }
